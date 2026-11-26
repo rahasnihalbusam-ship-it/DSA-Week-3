@@ -1,0 +1,26 @@
+public class KthGrammer {
+    public static void main(String[] args) {
+
+        int n = 3;
+        int k = 3;
+
+        int result = kthGrammar(n, k);
+
+        System.out.println(result);
+    }
+
+    public static int kthGrammar(int n, int k) {
+
+        if (n == 1) {
+            return 0;
+        }
+
+        int parent = kthGrammar(n - 1, (k + 1) / 2);
+
+        if (k % 2 == 1) {
+            return parent;
+        } else {
+            return 1 - parent;
+        }
+    }
+}
